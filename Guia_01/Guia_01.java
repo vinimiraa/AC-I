@@ -33,7 +33,19 @@ public class Guia_01
      *  @param value - valor decimal
      */
     public static String dec2bin(int value) {
-        return ("0");
+        int binary = 0;
+        int bit = 0;
+        int position = 1;
+
+        while( value > 0 )
+        {
+            bit = value % 2;
+            binary = binary + bit * position;
+            value = value / 2;
+            position = position * 10;
+        } // end while
+
+        return ( Integer.toString(binary) );
     } // end dec2bin ( )
 
     /**
@@ -41,8 +53,20 @@ public class Guia_01
      *  @return decimal equivalente
      *  @param value - valor binario
      */
-    public static int bin2dec(String value) {
-        return (-1);
+    public static int bin2dec(String value) 
+    {
+        int length = 0;
+        int decimal = 0;
+        int bit = 0;
+
+        length = value.length();
+        for( int x = 0; x < length; x = x + 1 )
+        {
+            bit = Integer.parseInt(String.valueOf(value.charAt(x)));
+            decimal = decimal + bit * (int)Math.pow(2, length-1-x);
+        }
+
+        return (decimal);
     } // end bin2dec ( )
 
     /**
@@ -90,17 +114,20 @@ public class Guia_01
         System.out.println("Guia_01 - Java Tests ");
         System.out.println("812839 - Vinicius Miranda de Araujo ");
         System.out.println();
-        test_equals(dec2bin(23), "10101");
-        test_equals(dec2bin(57), "10101");
-        test_equals(dec2bin(732), "10101");
-        test_equals(dec2bin(321), "10101");
-        test_equals(dec2bin(364), "10101");
+
+        System.out.println("bin2dec( 1011 ) = " + bin2dec("1011"));
+
+        test_equals(dec2bin(23), "10111");
+        test_equals(dec2bin(57), "111001");
+        test_equals(dec2bin(732), "1011011100");
+        test_equals(dec2bin(321), "101000001");
+        test_equals(dec2bin(364), "101101100");
         System.out.println("1. errorTotalReport = " + test_report());
-        test_equals(bin2dec("10011"), 0);
-        test_equals(bin2dec("11101"), 0);
-        test_equals(bin2dec("10110"), 0);
-        test_equals(bin2dec("101101"), 0);
-        test_equals(bin2dec("110011"), 0);
+        test_equals(bin2dec("10011"), 19);
+        test_equals(bin2dec("11101"), 29);
+        test_equals(bin2dec("10110"), 22);
+        test_equals(bin2dec("101101"), 45);
+        test_equals(bin2dec("110011"), 51);
         System.out.println("2. errorTotalReport = " + test_report());
         test_equals(dec2base(67, 4), "10101");
         test_equals(dec2base(58, 8), "10101");
@@ -123,7 +150,12 @@ public class Guia_01
         test_equals(hex2ASCII("54 ..."), "10101"); // OBS.: 54 e' o primeiro hexadecimal (0x54)!
         System.out.println("5. errorTotalReport = " + test_report());
         System.out.print("\n\nApertar ENTER para terminar.");
-        System.console().readLine();
+        try {
+            System.console().readLine();
+            
+        } catch (Exception e) {
+            System.err.println( "Erro: leitura invalida." );
+        }
     } // end main
 
 } // end class
