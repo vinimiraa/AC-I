@@ -1,11 +1,11 @@
 // --------------------- 
 // TRUTH TABLE 
-// Nome: xxx yyy zzz 
-// Matricula: 999999 
+// Nome: Vinicius Miranda de Araujo
+// Matricula: 812839
 // --------------------- 
 
 // --------------------- 
-// -- expression 
+// fxyz 
 // --------------------- 
 
 module fxy (output s, 
@@ -14,7 +14,7 @@ module fxy (output s,
 endmodule // fxy 
 
 // --------------------- 
-// -- SoP 
+// SoP 
 // --------------------- 
 
 module SoP (output s, 
@@ -25,7 +25,7 @@ module SoP (output s,
 endmodule // SoP
 
 // --------------------- 
-// -- PoS 
+// PoS 
 // --------------------- 
 
 module PoS (output S, 
@@ -36,10 +36,10 @@ module PoS (output S,
 endmodule // PoS 
 
 // --------------------- 
-// -- test_module 
+// TruthTable_Test 
 // --------------------- 
 
-module test_module; 
+module TruthTable_Test; 
     reg   x, y; 
     wire  s1, s2, s3; 
     // instancias 
@@ -68,4 +68,4 @@ initial begin: main
     #1  x=1; y=1; 
 end 
 
-endmodule // test_module 
+endmodule // TruthTable_Test 
