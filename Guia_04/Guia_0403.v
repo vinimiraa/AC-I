@@ -1,11 +1,11 @@
-// --------------------- 
+// ---------------------
 // TRUTH TABLE 
 // Nome: Vinicius Miranda de Araujo
 // Matricula: 812839 
 // --------------------- 
 
 // --------------------- 
-// -- SoP 
+// SoP 
 // --------------------- 
 
 module SoP (output s1,
@@ -68,42 +68,47 @@ module Guia_0403;
     // parte principal 
     initial begin: main 
         // identificacao 
-        $display("Guia_0403 - Test\n"); 
+        $display("Guia_0403 - Test"); 
 
         // monitoramento 
-        $display("a.)"); 
+        $display("\na.)"); 
+        $display(" x  y  z  = s1");
         $monitor("%2b %2b %2b  = %2b", x, y, z, s1); 
         for (i = 0; i < 8; i = i + 1) begin
             { x, y, z } = i;
-            #10;
+            #1;
         end // end for
 
-        $display("\nb.)"); 
+        $display("\nb.)");
+        $display(" x  y  z  = s2"); 
         $monitor("%2b %2b %2b  = %2b", x, y, z, s2); 
         for (i = 0; i < 8; i = i + 1) begin
             { x, y, z } = i;
-            #10;
+            #1;
         end // end for
 
         $display("\nc.)"); 
+        $display(" x  y  w  z  = s3");
         $monitor("%2b %2b %2b %2b  = %2b", x, y, w, z, s3); 
         for (i = 0; i < 16; i = i + 1) begin
             { x, y, w, z } = i;
-            #10;
+            #1;
         end // end for
 
         $display("\nd.)"); 
+        $display(" x  y  w  z  = s4");
         $monitor("%2b %2b %2b %2b  = %2b", x, y, w, z, s4); 
         for (i = 0; i < 16; i = i + 1) begin
             { x, y, w, z } = i;
-            #10;
+            #1;
         end // end for
 
-        $display("\ne.)"); 
+        $display("\ne.)");
+        $display(" x  y  w  z  = s5"); 
         $monitor("%2b %2b %2b %2b  = %2b", x, y, w, z, s5); 
         for (i = 0; i < 16; i = i + 1) begin
             { x, y, w, z } = i;
-            #10;
+            #1;
         end // end for
     end // end main 
 

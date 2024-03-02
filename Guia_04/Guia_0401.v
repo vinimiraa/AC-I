@@ -1,4 +1,4 @@
-// --------------------- 
+// ---------------------
 // TRUTH TABLE 
 // Nome: Vinicius Miranda de Araujo
 // Matricula: 812839 
@@ -51,10 +51,10 @@ module Guia_0401;
     // parte principal 
     initial begin: main 
         // identificacao 
-        $display("Guia_0401 - Test\n "); 
+        $display("Guia_0401 - Test"); 
 
         // monitoramento
-        $display("a.)"); 
+        $display("\na.)"); 
         $display(" x  y  z  = s1"); 
         $monitor("%2b %2b %2b  = %2b", x, y, z, s1); 
         // sinalizacao 

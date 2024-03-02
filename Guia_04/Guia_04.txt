@@ -139,11 +139,11 @@ endmodule // fxyz
 // ---------------------------------------- Questão 2
 
 2.)
-a.) x . ( x' + y' )' = x . x . y = x . y 
+a.) x . ( x' + y' )' = x . x . y = x . ~y 
 
 module fxyz (output s1, output s2, input  x, y, z); 
  assign s1 = x & ( ~x | ~y ); 
- assign s2 =  x | y;
+ assign s2 =  x & ~y;
 endmodule // fxyz 
 
 b.) ( x' + y ) + ( x . y )  = x' + ( y + x . y ) = x' + ( x.y ) = ( x' . x ) + ( x' . y ) =  1 . ( x' . y ) = x' . y
@@ -161,11 +161,11 @@ module fxyz (output s1, output s2, input  x, y, z);
 endmodule // fxyz 
 
 d.) ( x' . y' )' + ( x' + y' )' = ( x + y ) + ( x . y ) = x + ( y + x . y ) = x + ( x . y ) = ( x . x ) + ( x . y )
-= 1 . ( x . y ) = x . y  
+= 1 . ( x . y ) = x | y  
 
 module fxyz (output s1, output s2, input  x, y, z); 
  assign s1 = ~( ~x & ~y ) | ~( ~x | ~y ); 
- assign s2 =  x & y; 
+ assign s2 =  x | y; 
 endmodule // fxyz 
 
 e.) ( y + x' )' . ( y' + x ) = ( y' . x ) . ( y' + x ) = ( y' . x + y' ) + x = ( y' . x ) + x = x . y'
@@ -461,19 +461,25 @@ endmodule // PoS
 
 5.) 
 
-a.) SoP( x , y ) = x'.y' + x'.y + x.y' + x.y = x'.y' + x.y
-    PoS( x , y ) = (x+y) . (x+y') . (x'+y) . (x'+y') = (x+y′) . (x+y)
+a.) SoP( x , y ) = (x'.y) + (x.y)
 
-b.) SoP( x , y ) = x'.y' + x'.y
-    PoS( x , y ) = (x+y') . (x'+y)
+    PoS( x , y ) = (X+Y) . (X'+Y)
 
-c.) SoP( x, y, z ) = x'.y'.z'
-    PoS( x, y, z ) = (x+y+z) . (x'+y+z') . (x'+y'+z) . (x'+y'+z')
+b.) SoP( x , y ) = (x'.y') + (x'.y) + (x.y)
 
-d.) SoP( x, y, z ) = x'.y'.z'
-    PoS( x, y, z ) = (x+y+z) . (x'+y+z') . (x'+y'+z) . (x'+y'+z')
+    PoS( x , y ) = (X'+Y)
 
-e.) SoP( x, y, w, z ) =  x'.y'.w'.z'
-    PoS( x, y, w, z ) = (x+y+w'+z) . (x'+y+w+z') . (x'+y'+w) . (x'+y'+w+z)
+c.) SoP( x, y, z ) = (x'.y'.z') + (x'.y'.z) + (x'.y.z) + (x.y'.z') + (x.y.z') + (x.y.z)
+
+    PoS( x, y, z ) = (X+Y'+Z) . (X'+Y+Z')
+
+d.) SoP( x, y, z ) = (x'.y'.z') + (x'.y.z') + ( x.y'.z') + (x.y'.z) + (x.y.z')
+
+    PoS( x, y, z ) = (X+Y+Z') . (X+Y'+Z') . (X'+Y'+Z')
+
+e.) SoP( x, y, w, z ) =  (x'.y'.w'.z') + (x'.y'.w'.z) + (x'.y'.w.z) + (x'.y.w'.z') + (x'.y.w'.z) + (x.y'.w'.z') 
+                      + (x.y'.w'.z) + (x.y'.w.z') + (x.y.w.z') + (x.y.w.z)
+
+    PoS( x, y, w, z ) = (X+Y+W'+Z) . (X+Y'+W'+Z) . (X+Y'+W'+Z') . (X'+Y+W'+Z') . (X'+Y'+W+Z) . (X'+Y'+W+Z')
 
 // ---------------------------------------- FIM
